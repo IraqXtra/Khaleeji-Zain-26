@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خليجي زين 26 - Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .group, .knockout {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            margin: 5px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>خليجي زين 26 - توقع المراحل</h1>
+
+    <!-- Group A -->
+    <div class="group">
+        <h3>المجموعة الأولى</h3>
+        <label>اختيار الفريقين المتأهلين:</label>
+        <select id="groupA1">
+            <option value="">اختر فريق</option>
+            <option value="الكويت">الكويت</option>
+            <option value="قطر">قطر</option>
+            <option value="الإمارات">الإمارات</option>
+            <option value="عمان">عمان</option>
+        </select>
+        <select id="groupA2">
+            <option value="">اختر فريق</option>
+            <option value="الكويت">الكويت</option>
+            <option value="قطر">قطر</option>
+            <option value="الإمارات">الإمارات</option>
+            <option value="عمان">عمان</option>
+        </select>
+    </div>
+
+    <!-- Group B -->
+    <div class="group">
+        <h3>المجموعة الثانية</h3>
+        <label>اختيار الفريقين المتأهلين:</label>
+        <select id="groupB1">
+            <option value="">اختر فريق</option>
+            <option value="العراق">العراق</option>
+            <option value="السعودية">السعودية</option>
+            <option value="البحرين">البحرين</option>
+            <option value="اليمن">اليمن</option>
+        </select>
+        <select id="groupB2">
+            <option value="">اختر فريق</option>
+            <option value="العراق">العراق</option>
+            <option value="السعودية">السعودية</option>
+            <option value="البحرين">البحرين</option>
+            <option value="اليمن">اليمن</option>
+        </select>
+    </div>
+
+    <!-- Knockout Stage -->
+    <div class="knockout">
+        <h3>مرحلة خروج المغلوب</h3>
+        <label>اختر الفائزين:</label>
+        <select id="semifinal1">
+            <option value="">اختر فريق</option>
+            <option value="متصدر المجموعة الأولى">متصدر المجموعة الأولى</option>
+            <option value="وصيف المجموعة الثانية">وصيف المجموعة الثانية</option>
+        </select>
+        <select id="semifinal2">
+            <option value="">اختر فريق</option>
+            <option value="متصدر المجموعة الثانية">متصدر المجموعة الثانية</option>
+            <option value="وصيف المجموعة الأولى">وصيف المجموعة الأولى</option>
+        </select>
+        <label>اختيار الفائز في النهائي:</label>
+        <select id="final">
+            <option value="">اختر فريق</option>
+            <option value="فائز نصف النهائي 1">فائز نصف النهائي 1</option>
+            <option value="فائز نصف النهائي 2">فائز نصف النهائي 2</option>
+        </select>
+    </div>
+
+    <button onclick="submitPrediction()">عرض التوقعات</button>
+
+    <script>
+        function submitPrediction() {
+            const groupA1 = document.getElementById("groupA1").value;
+            const groupA2 = document.getElementById("groupA2").value;
+            const groupB1 = document.getElementById("groupB1").value;
+            const groupB2 = document.getElementById("groupB2").value;
+            const semifinal1 = document.getElementById("semifinal1").value;
+            const semifinal2 = document.getElementById("semifinal2").value;
+            const final = document.getElementById("final").value;
+
+            if (!groupA1 || !groupA2 || !groupB1 || !groupB2 || !semifinal1 || !semifinal2 || !final) {
+                alert("يرجى اختيار جميع الفرق قبل عرض التوقعات!");
+                return;
+            }
+
+            alert(`
+                التوقعات:
+                - متأهلان من المجموعة الأولى: ${groupA1}, ${groupA2}
+                - متأهلان من المجموعة الثانية: ${groupB1}, ${groupB2}
+                - الفائز في نصف النهائي الأول: ${semifinal1}
+                - الفائز في نصف النهائي الثاني: ${semifinal2}
+                - الفائز في النهائي: ${final}
+            `);
+        }
+    </script>
+</body>
+</html>
